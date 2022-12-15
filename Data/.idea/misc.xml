@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectResources">
+    <resource url="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" location="$USER_HOME$/Downloads/DWML.xsd" />
+    <resource url="http://www.itunes.com/dtds/podcast-1.0.dtd" location="$USER_HOME$/AppData/Local/JetBrains/IdeaIC2022.1/extResources/84d2ce41_podcast-1.0.dtd" />
+    <resource url="https://graphical.weather.gov/xml/DWMLgen/schema/location.xsd" location="$USER_HOME$/Downloads/location.xsd" />
+    <resource url="https://graphical.weather.gov/xml/DWMLgen/schema/meta_data.xsd" location="$USER_HOME$/Downloads/meta_data.xsd" />
+    <resource url="https://graphical.weather.gov/xml/DWMLgen/schema/moreWeatherInformation.xsd" location="$USER_HOME$/Downloads/moreWeatherInformation.xsd" />
+    <resource url="https://graphical.weather.gov/xml/DWMLgen/schema/ndfd_data.xsd" location="$USER_HOME$/Downloads/ndfd_data.xsd" />
+    <resource url="https://graphical.weather.gov/xml/DWMLgen/schema/parameters.xsd" location="$USER_HOME$/Downloads/parameters.xsd" />
+    <resource url="https://graphical.weather.gov/xml/DWMLgen/schema/summarizationType.xsd" location="$USER_HOME$/Downloads/summarizationType.xsd" />
+    <resource url="https://graphical.weather.gov/xml/DWMLgen/schema/time_layout.xsd" location="$USER_HOME$/Downloads/time_layout.xsd" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>
