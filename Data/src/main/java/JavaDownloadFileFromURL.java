@@ -1,12 +1,12 @@
-import java.io.BufferedInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
+import java.util.ArrayList;
+import java.util.List;
 
 public class JavaDownloadFileFromURL {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         String url = "https://forecast.weather.gov/MapClick.php?lat=36.4336&lon=-99.399&FcstType=digitalDWML";
 
         String nio = "/WeatherApp/Data/src/main/resources/weatherXML/weather.xml";
@@ -18,6 +18,8 @@ public class JavaDownloadFileFromURL {
         }catch (IOException e){
             e.printStackTrace();
         }
+
+
     }
 
     private static void downloadUsingStream(String urlStr, String file) throws IOException{
