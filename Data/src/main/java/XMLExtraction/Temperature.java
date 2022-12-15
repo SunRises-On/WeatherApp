@@ -16,4 +16,11 @@ public class Temperature {
     public int getTemperature(){
         return temperature;
     }
+
+    @Override
+    public String toString() {
+        return "Temperature{" +
+                "temperature=" + temperature +
+                '}';
+    }
 }

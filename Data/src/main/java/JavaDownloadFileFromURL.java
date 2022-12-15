@@ -7,7 +7,7 @@ import java.util.List;
 
 public class JavaDownloadFileFromURL {
     public static void main(String[] args) {
-        String url = "https://forecast.weather.gov/MapClick.php?lat=36.4336&lon=-99.399&FcstType=digitalDWML";
+        String url = "https://forecast.weather.gov/MapClick.php?lat=41.9923&lon=-88.0261&FcstType=digitalDWML";
 
         String nio = "/WeatherApp/Data/src/main/resources/weatherXML/weather.xml";
         String stream ="/WeatherApp/Data/src/main/resources/weatherXML/weather_stream.xml";
