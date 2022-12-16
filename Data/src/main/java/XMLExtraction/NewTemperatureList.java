@@ -62,11 +62,12 @@ public class NewTemperatureList {
                             if(node.getNodeType() == Node.ELEMENT_NODE){
                                 Element elementNode = (Element) node;
                                 String value  = elementNode.getElementsByTagName("value").item(j).getTextContent();
-                                System.out.println("Value : " + value);
+                                //System.out.println("Value : " + value);
                                 Temperature temp = ConvertToTempObj(value);
                                 temperatures.add(temp);
                             }
                         }
+                        System.out.println(temperatures);
 
                     }
 
@@ -77,9 +78,6 @@ public class NewTemperatureList {
             e.printStackTrace();
         }
 
-        for(Temperature t: temperatures){
-            System.out.println(t);
-        }
         return temperatures;
     }
 

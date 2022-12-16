@@ -1,7 +1,7 @@
 package XMLExtraction;
 
 public class Temperature {
-    public int temperature;
+    private int temperature;
 
     public Temperature(){
 

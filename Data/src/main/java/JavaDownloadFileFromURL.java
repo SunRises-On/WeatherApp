@@ -15,6 +15,7 @@ public class JavaDownloadFileFromURL {
             downloadUsingNIO(url, nio);
 
             downloadUsingStream(url, stream);
+            System.out.println("Downloaded file successfully!");
         }catch (IOException e){
             e.printStackTrace();
         }
