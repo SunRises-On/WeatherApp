@@ -22,11 +22,6 @@ function App() {
       console.log("temps : " + temps);
       console.log("temps at (5) : " + JSON.stringify(temps.at(0)));
 
-      // setTemps(JSON.stringify(happy));
-      // console.log("second...");
-      // console.log("happy at (5) : " + JSON.stringify(happy.at(5)));
-      // console.log("temps : " + temps);
-      // console.log("temps at (5) : " + temps.at(5));
     })
     .catch((error)=>{
       console.log(error);
