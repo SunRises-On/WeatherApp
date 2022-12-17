@@ -22,10 +22,12 @@ public class HourlyController {
     private HourlyRepo hourlyRepo;
 
     @GetMapping("/hourly")
-    public Map<String, List<Hourly>> GetHourly(){
+    public Map<String,Map<String, List<Hourly>>> GetHourly(){
         List<Hourly> temp = hourlyRepo.findAll();
-        Map<String, List<Hourly>> temperatures = new HashMap<>();
-        temperatures.put("temps",temp);
+        Map<String, List<Hourly>> map = new HashMap<>();
+        map.put("allTemps",temp);
+        Map<String,Map<String,List<Hourly>>> temperatures = new HashMap<>();
+        temperatures.put("temps",map);
         return temperatures;
     }
 }
