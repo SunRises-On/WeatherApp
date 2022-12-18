@@ -1,17 +1,18 @@
 import React from 'react';
+import './style/TempHourlyStyle.css';
 export default function TempHourly(props){
     const{temps}=props;
     console.log("we are in temp hourly");
     if(temps.length>0){
         return(
-            <div>
+            <div class = "container">
                 <table>
-                    <thread>
+                    <thead>
                         <tr>
-                            <th>Hour</th>
-                            <th>Temperature</th>
+                            <th >Hour</th>
+                            <th >Temperature</th>
                         </tr>
-                    </thread>
+                    </thead>
                     <tbody>
                         {
                             temps.map((temp)=>{
