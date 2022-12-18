@@ -4,15 +4,30 @@ export default function TempHourly(props){
     console.log("we are in temp hourly");
     if(temps.length>0){
         return(
-        temps.map((temp)=>{
-            return(
-                <div key = {temp.id}>
-                    <span>id={temp.id}</span>
-                    <p>{temp.temperature}&deg;</p>
-                </div>
+            <div>
+                <table>
+                    <thread>
+                        <tr>
+                            <th>Hour</th>
+                            <th>Temperature</th>
+                        </tr>
+                    </thread>
+                    <tbody>
+                        {
+                            temps.map((temp)=>{
+                                return(
+                                    <tr key={temp.id}>
+                                        <td>id={temp.id}</td>
+                                        <td>{temp.temperature}&deg;</td>
+                                    </tr>    
+                                )
+                            })   
+                        }
+                    </tbody>
+                </table>
+            </div>
             )
-        })
-    )}else{
+    }else{
         return(<h>Database error</h>)
     }
  }
