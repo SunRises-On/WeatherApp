@@ -7,5 +7,6 @@ class TemperatureService{
     getTemperatures(){
         return axios.get(WEATHER_API_BASE_URL);
     }
+
 }
 export default new TemperatureService();
