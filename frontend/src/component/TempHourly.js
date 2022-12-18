@@ -8,7 +8,7 @@ export default function TempHourly(props){
             return(
                 <div key = {temp.id}>
                     <span>id={temp.id}</span>
-                    <p>{temp.temperature}</p>
+                    <p>{temp.temperature}&deg;</p>
                 </div>
             )
         })

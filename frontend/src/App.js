@@ -35,7 +35,19 @@ function App() {
         console.log("temps at (5) : " + JSON.stringify(temps.at(0)));
 
       }catch(error){
-        console.error(error.message);
+        if(error.response){
+          //Request completed but server responded with an error
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        }else if(error.request){
+          //Request completed but no response received from server.
+          console.log(error.request);
+        }else{
+          //Error occured while setting up request.
+          console.log("Error : " + error.message);
+        }
+        
       }
       
     }
