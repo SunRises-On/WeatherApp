@@ -13,7 +13,8 @@ import java.util.Date;
 
 @Component
 public class Scheduler {
-    @Scheduled(cron = "* * * ? * * ")
+    //Cron job every 5 minutes
+    @Scheduled(cron = "0 */5 * ? * * ")
     public void cronJobSch() throws Exception {
 
         XMLController now = new XMLController();
