@@ -1,3 +1,5 @@
+package getData;
+
 import java.io.*;
 import java.net.URL;
 import java.nio.channels.Channels;
@@ -5,9 +7,9 @@ import java.nio.channels.ReadableByteChannel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JavaDownloadFileFromURL {
-    public static void main(String[] args) {
-     //   String url = "https://forecast.weather.gov/MapClick.php?lat=41.9923&lon=-88.0261&FcstType=digitalDWML";
+public class DownloadXML{
+    public void start(){
+        //   String url = "https://forecast.weather.gov/MapClick.php?lat=41.9923&lon=-88.0261&FcstType=digitalDWML";
         String url = "https://forecast.weather.gov/MapClick.php?lat=21.4589&lon=-157.9734&FcstType=digitalDWML";
         String nio = "/WeatherApp/Data/src/main/resources/weatherXML/weather.xml";
         String stream ="/WeatherApp/Data/src/main/resources/weatherXML/weather_stream.xml";
@@ -23,7 +25,7 @@ public class JavaDownloadFileFromURL {
 
     }
 
-    private static void downloadUsingStream(String urlStr, String file) throws IOException{
+    private void downloadUsingStream(String urlStr, String file) throws IOException{
         URL url = new URL(urlStr);
         BufferedInputStream bis = new BufferedInputStream(url.openStream());
         FileOutputStream fis = new FileOutputStream(file);
@@ -35,7 +37,7 @@ public class JavaDownloadFileFromURL {
         fis.close();
         bis.close();
     }
-    private static void downloadUsingNIO(String urlStr, String file)throws IOException{
+    private void downloadUsingNIO(String urlStr, String file)throws IOException{
         URL url = new URL(urlStr);
         ReadableByteChannel rbc = Channels.newChannel(url.openStream());
         FileOutputStream fos = new FileOutputStream(file);

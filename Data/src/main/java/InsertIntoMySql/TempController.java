@@ -16,6 +16,7 @@ public class TempController {
                 System.out.println("Connection established ...");
 
                 Boolean exist = checkIfExist(con);
+                System.out.println("Exist = " + exist);
                 if (!exist) {
                     insert(con, list);
 
@@ -67,10 +68,15 @@ public class TempController {
     public void insert(Connection con, List<Temperature> list){
         try{
             int i = 1;
-
+            System.out.println("");
+            System.out.println(" We don't have a sys.hourly table created");
             System.out.println(list);
 
-            PreparedStatement pstmt = con.prepareStatement("INSERT INTO sys.hourly VALUES (?,?)");
+
+            PreparedStatement pstmt = con.prepareStatement("CREATE TABLE sys.hourly (id INTEGER NOT NULL, temperature INTEGER)");
+            pstmt.execute();
+
+            pstmt = con.prepareStatement("INSERT INTO sys.hourly VALUES (?,?)");
 
             for (Temperature t : list) {
 
