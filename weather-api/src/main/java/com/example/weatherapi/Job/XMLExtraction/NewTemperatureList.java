@@ -37,10 +37,13 @@ public class NewTemperatureList {
 
             //get <temperature>
             NodeList list = doc.getElementsByTagName("temperature");
+            if(list.getLength() <= 0){
+                System.out.println("Error extract temperature from XML file.");
+            }
 
             for(int i=0; i< list.getLength(); i++){
                 Node node = list.item(i);
-                System.out.println("List length : " + list.getLength());
+                //System.out.println("List length : " + list.getLength());
                 if(node.getNodeType() == Node.ELEMENT_NODE){
                     Element element = (Element) node;
                     //get temperature's attribute
@@ -50,8 +53,9 @@ public class NewTemperatureList {
                     //if <temperature type="hourly">
                     if(type.equals(attr)){
 
-                        System.out.println("Current Element :" + node.getNodeName());
-                        System.out.println("Type : "+attr);
+                       // System.out.println("Current Element :" + node.getNodeName());
+                       // System.out.println("Type : "+attr);
+
                         //get a node list of values
                         NodeList valueNodeList = element.getElementsByTagName("value");
 
@@ -67,7 +71,7 @@ public class NewTemperatureList {
                                 temperatures.add(temp);
                             }
                         }
-                        System.out.println(temperatures);
+                        //System.out.println(temperatures);
 
                     }
 

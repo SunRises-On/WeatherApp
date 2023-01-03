@@ -17,8 +17,9 @@ public class DownloadXML {
             downloadUsingNIO(url, nio);
 
             downloadUsingStream(url, stream);
-            System.out.println("Downloaded file successfully!");
+            //System.out.println("Downloaded file successfully!");
         }catch (IOException e){
+            System.out.print("Unable to download XML files : ");
             e.printStackTrace();
         }
 

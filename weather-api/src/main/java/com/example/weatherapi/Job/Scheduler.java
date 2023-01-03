@@ -5,15 +5,28 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 @Component
 public class Scheduler {
     @Scheduled(cron = "* * * ? * * ")
     public void cronJobSch() throws Exception {
-        //SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+
         XMLController now = new XMLController();
         now.Start();
-      //  String strDate = simpleDate.format(now);
-       // System.out.println("Java cron job expression:: " + strDate);
+
+        Instant instant = Instant.now();
+        ZoneOffset zoneOffset = ZoneOffset.of("-06:00"); //UTC to Central Time
+        OffsetDateTime offsetDateTime= instant.atOffset(zoneOffset);
+        //Format time and stop displaying "-06:00" and nanoseconds
+        DateTimeFormatter dateTF = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'");
+        System.out.println("Java cron job expression:: " + dateTF.format(offsetDateTime));
+
+        //print nanoseconds
+        //System.out.println("Java cron job expression:: " + offsetDateTime.toString());
     }
 }

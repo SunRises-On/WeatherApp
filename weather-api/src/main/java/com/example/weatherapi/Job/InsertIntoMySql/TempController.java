@@ -15,15 +15,15 @@ public class TempController {
             con.setAutoCommit(true);
             if(!con.isClosed()) {
 
-                System.out.println("Connection established ...");
+                //System.out.println("Connection established ...");
 
                 Boolean exist = checkIfExist(con);
-                System.out.println("Exist = " + exist);
+                //System.out.println("Exist = " + exist);
                 if (!exist) {
                     insert(con, list);
 
                 }else{
-                    System.out.println("First 24 hour temperature already exists just update it!");
+                   // System.out.println("First 24 hour temperature already exists just update it!");
                     update(con, list);
                 }
             }
@@ -51,11 +51,11 @@ public class TempController {
             PreparedStatement ps = con.prepareStatement("SELECT COUNT(*) FROM sys.hourly WHERE id = ?");
             ps.setInt(1,24);
             ResultSet rs = ps.executeQuery();
-            System.out.println("ResultSet : " + rs.toString());
+           // System.out.println("ResultSet : " + rs.toString());
             int n=0;
             if(rs.next()){
                 n=rs.getInt(1);
-                System.out.println("n = " + n);
+                //System.out.println("Reultset length = " + n);
 
             }
             if(n>0){
@@ -70,10 +70,8 @@ public class TempController {
     public void insert(Connection con, List<Temperature> list){
         try{
             int i = 1;
-            System.out.println("");
-            System.out.println(" We don't have a sys.hourly table created");
-            System.out.println(list);
-
+           //System.out.println(" We don't have a sys.hourly table created");
+            //System.out.println(list);
 
             //PreparedStatement pstmt = con.prepareStatement("CREATE TABLE sys.hourly (id INTEGER NOT NULL, temperature INTEGER)");
             //pstmt.execute();
@@ -90,7 +88,7 @@ public class TempController {
                     break;
                 }
             }
-            System.out.println("Updated Successfully!");
+            //System.out.println("Updated Successfully!");
         }catch(SQLException e){
             System.out.println("SQLException : " + e);
         }
@@ -99,7 +97,7 @@ public class TempController {
         try{
             int i = 1;
 
-            System.out.println(list);
+            //System.out.println(list);
 
             PreparedStatement pstmt = con.prepareStatement("UPDATE sys.hourly SET temperature=? WHERE id=?");
 
