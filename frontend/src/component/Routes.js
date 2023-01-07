@@ -8,12 +8,13 @@ import { history } from './helpers/history';
 import HomePage from "./component/HomePage"
 import LoginPage from "./component/Login"
 import Weather from "./Weather";
+import RouteGuard from "./RouteGuard";
  
 function Routes() {
    return (
        <Router history={history}>
            <Switch>
-               <Route
+               <RouteGuard
                    exact
                    path="/"
                    component={HomePage}
@@ -23,7 +24,7 @@ function Routes() {
                    component={LoginPage}
                />
                <Redirect to="/" />
-               <Route
+               <RouteGuard
                 path="/weather"
                 component={Weather}
                />
