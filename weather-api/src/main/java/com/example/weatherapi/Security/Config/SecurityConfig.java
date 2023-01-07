@@ -29,7 +29,7 @@ public class SecurityConfig {
                 //for example homepage and creating an account
                 .requestMatchers("/home")
                 .permitAll()
-                .requestMatchers("")
+                .requestMatchers("/api/v1/auth/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
