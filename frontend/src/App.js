@@ -1,17 +1,13 @@
 import './App.css';
 import React from 'react';
-import {Navigate, Routes, Route, Router, BrowserRouter } from "react-router-dom";
+import {Navigate, Routes, Route, BrowserRouter } from "react-router-dom";
 
-
-//history
-import { history } from './helpers/history'; 
 //pages
 import Home from './component/Home';
 import Login from './component/Login';
 import Register from './component/Register';
 import Weather from './component/Weather';
-import RouteGuard from './component/RouteGuard';
-
+import PrivateRoutes from './component/PrivateRoutes';
 import {setAuthToken} from './helpers/setAuthToken';
 
 function App() {
@@ -26,6 +22,10 @@ function App() {
     <div>
       <BrowserRouter>
            <Routes>
+              <Route element ={<PrivateRoutes/>}>
+                <Route path='weather' element={<Weather/>}/>
+                {/* <Route path='other' element={<Other/>}/> */}
+              </Route>
                <Route
                    exact path="/"
                    element={<Home/>}
@@ -38,9 +38,6 @@ function App() {
                     path="register"
                     element={<Register/>}
                />
-               <Route element={<RouteGuard/>}>
-                  <Route path="weather" element={<Weather/>} />
-               </Route>
                {/* when we make an invalid path we will be redirected to home page component */}
                <Route path='*' element={<Navigate to="/"/>} />
                
