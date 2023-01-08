@@ -11,26 +11,20 @@ function Login() {
             email: 'jen@gmail.com',
             password: 'jenn1'
           }
-    }
-    
-    const loginUser = async()=>{
-        try{
-          const response = await LoginService.login();
-          //get token from response
-          const token  =  response.data.token;
-          //set JWT token to sessionStorage
-          sessionStorage.setItem("token", token);
-  
-          //set token to axios common header
-          //setAuthToken(token);
-          setAuthToken(token);
-          //redirect user to home page
-          window.location.href = '/weather'
-  
-        }catch(error){
-            ErrorService.handle(error);
-        }
+        
+          LoginService.login(loginPayload).then(response =>{
+            //get token from response
+            const token = response.data.token;
+            //set JWT token to sessionStorage
+            sessionStorage.setItem("token",token);
+            //set token to axios common header
+            setAuthToken(token);
+            //redirect user to weather temps
+            window.location.href='/weather';
+          })
+            .catch(error=>ErrorService.handle(error));
       };
+      
       return(
         <form
             onSubmit={(event)=>{

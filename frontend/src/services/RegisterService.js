@@ -4,8 +4,8 @@ import axios from 'axios';
 const REGISTER_API_BASE_URL = "http://localhost:8080/api/v1/auth/register";
 class RegisterService{
 
-    register(){
-        return axios.post(REGISTER_API_BASE_URL);
+    register(payload){
+        return axios.post(REGISTER_API_BASE_URL, payload);
     }
 
 }

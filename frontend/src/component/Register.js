@@ -12,26 +12,18 @@ function Register() {
             email: 'jen@gmail.com',
             password: 'jenn1'
         }
-    }
-    
-    const registerUser = async()=>{
-        try{
-          const response = await RegisterService.register();
+        RegisterService.register(registerPayload).then(response =>{
           //get token from response
-          const token  =  response.data.token;
+          const token = response.data.token;
           //set JWT token to sessionStorage
-          sessionStorage.setItem("token", token);
+          sessionStorage.setItem("token",token);
           //set token to axios common header
           setAuthToken(token);
-          //redirect user to home page
+          //redirect user to weather temps
           window.location.href='/weather';
-  
-        }catch(error){
-          ErrorService.handle(error);
-        }
-
-        
-      };
+        })
+          .catch(error=>ErrorService.handle(error));
+    };
 
     return(
         <form>
