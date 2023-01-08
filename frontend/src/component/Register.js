@@ -1,10 +1,9 @@
 import React from "react";
-import axios from "axios";
 import { setAuthToken } from "../helpers/setAuthToken";
 import RegisterService from "../services/RegisterService";
 import ErrorService from "../services/ErrorService";
-import {setAuthToken} from 
 function Register() {
+  
     const handleSubmit = (username,email,password)=>{
         //request registered sample user
         const registerPayload = {
