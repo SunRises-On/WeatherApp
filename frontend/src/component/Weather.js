@@ -1,8 +1,8 @@
 import { useEffect ,useState} from 'react';
 import React from 'react';
-import TemperatureService from './services/TemperatureService';
+import TemperatureService from '../services/TemperatureService';
 import ErrorService from '../services/ErrorService';
-import TempHourly from './component/TempHourly';
+import TempHourly from './TempHourly';
 function Weather() {
   const[temps, setTemps]=useState([]);
   

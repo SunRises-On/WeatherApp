@@ -2,10 +2,14 @@ import LoginService from "../services/LoginService";
 import ErrorService from "../services/ErrorService";
 const handleSubmit = (email, pass) => {
     //reqres registered sample user
-    const loginPayload = {
-      email: 'jen@gmail.com',
-      password: 'jenn1'
+    const handleSubmit=(email,password)=>{
+        //sample user
+        const loginPayload = {
+            email: 'jen@gmail.com',
+            password: 'jenn1'
+          }
     }
+    
     const loginUser = async()=>{
         try{
           const response = await LoginService.login();
@@ -22,6 +26,26 @@ const handleSubmit = (email, pass) => {
         }catch(error){
             ErrorService.handle(error);
         }
-      }
+      };
       loginUser();
-  };
+      return(
+        <form
+            onSubmit={(event)=>{
+                event.preventDefault()
+                const [email, password]= event.target.children;
+                handleSubmit(email, password);
+            }}
+
+        >
+
+            <label for="email">Email</label><br/>
+            <input type="email" id="email" name="email"/><br/>
+
+            <label for="password">Password</label><br/>
+            <input type="password" id="password" name="password"/><br/>
+
+            <input type="submit" value="Submit"/>
+        </form>
+      );
+  }
+  export default Login;

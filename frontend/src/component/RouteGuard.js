@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import {Route,Redirect} from 'react-router-dom';
+import React from 'react';
+import {Route,Navigate} from 'react-router-dom';
 //Route Guard component is an
 //authentication middleware.
 //switch to redux and 
@@ -20,7 +20,7 @@ const RouteGuard =({component:Component, ...rest})=>{
                 hasJWT()?
                     <Component{...props}/>
                     :
-                    <Redirect to={{ pathname: '/login'}}/>
+                    <Navigate to={{ pathname: '/login'}}/>
             )}
         />
     );

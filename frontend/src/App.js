@@ -3,11 +3,15 @@ import {Redirect, Switch, Route, Router, Routes} from "react-router-dom";
 
 import './App.css';
 import React from 'react';
-import Routes from './component/Routes';
+import rout from './component/rout';
 
 function App() {
+
+
    return(
-    <Routes/>
+    <div>
+      <rout/>
+    </div>
    );
 }
 

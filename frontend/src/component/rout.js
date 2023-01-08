@@ -2,18 +2,18 @@ import React from "react";
 import { Redirect, Switch, Route, Router } from "react-router-dom";
  
 //history
-import { history } from './helpers/history';
+//import { history } from './helpers/history';
  
 //pages
-import Home from "./component/HomePage";
-import Login from "./component/Login";
+import Home from "./Home"
+import Login from "./Login";
 import Register from "./Register";
 import Weather from "./Weather";
 import RouteGuard from "./RouteGuard";
  
 function Routes() {
    return (
-       <Router history={history}>
+       <Router >
            <Switch>
                <Route
                    exact
@@ -37,6 +37,5 @@ function Routes() {
            </Switch>
        </Router>
    );
-}
- 
-export default Routes
+};
+export default rout;
