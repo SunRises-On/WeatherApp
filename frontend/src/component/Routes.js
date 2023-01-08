@@ -5,8 +5,9 @@ import { Redirect, Switch, Route, Router } from "react-router-dom";
 import { history } from './helpers/history';
  
 //pages
-import HomePage from "./component/HomePage"
-import LoginPage from "./component/Login"
+import Home from "./component/HomePage";
+import Login from "./component/Login";
+import Register from "./Register";
 import Weather from "./Weather";
 import RouteGuard from "./RouteGuard";
  
@@ -14,20 +15,25 @@ function Routes() {
    return (
        <Router history={history}>
            <Switch>
-               <RouteGuard
+               <Route
                    exact
                    path="/"
-                   component={HomePage}
+                   component={Home}
                />
                <Route
                    path="/login"
-                   component={LoginPage}
+                   component={Login}
                />
-               <Redirect to="/" />
+               <Route
+                    path="/register"
+                    component={Register}
+               />
                <RouteGuard
                 path="/weather"
                 component={Weather}
                />
+               <Redirect to="/" />
+               
            </Switch>
        </Router>
    );

@@ -1,4 +1,5 @@
 import LoginService from "../services/LoginService";
+import ErrorService from "../services/ErrorService";
 const handleSubmit = (email, pass) => {
     //reqres registered sample user
     const loginPayload = {
@@ -15,24 +16,12 @@ const handleSubmit = (email, pass) => {
   
           //set token to axios common header
           setAuthToken(token);
-          
+          //redirect user to home page
+          window.location.href = '/weather'
   
         }catch(error){
-          if(error.response){
-            //Request completed but server responded with an error
-            console.log(error.response.data);
-            console.log(error.response.status);
-            console.log(error.response.headers);
-          }else if(error.request){
-            //Request completed but no response received from server.
-            console.log(error.request);
-          }else{
-            //Error occured while setting up request.
-            console.log("Error : " + error.message);
-          }
-          
+            ErrorService.handle(error);
         }
-        
       }
       loginUser();
   };
