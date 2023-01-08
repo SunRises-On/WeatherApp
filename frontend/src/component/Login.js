@@ -1,7 +1,10 @@
+import React from "react";
+import axios from "axios";
+import { setAuthToken } from "../helpers/setAuthToken";
 import LoginService from "../services/LoginService";
 import ErrorService from "../services/ErrorService";
-const handleSubmit = (email, pass) => {
-    //reqres registered sample user
+function Login() {
+    //request registered sample user
     const handleSubmit=(email,password)=>{
         //sample user
         const loginPayload = {
@@ -19,6 +22,7 @@ const handleSubmit = (email, pass) => {
           sessionStorage.setItem("token", token);
   
           //set token to axios common header
+          //setAuthToken(token);
           setAuthToken(token);
           //redirect user to home page
           window.location.href = '/weather'
@@ -27,7 +31,6 @@ const handleSubmit = (email, pass) => {
             ErrorService.handle(error);
         }
       };
-      loginUser();
       return(
         <form
             onSubmit={(event)=>{

@@ -1,5 +1,5 @@
 import React from "react";
-import { Redirect, Switch, Route, Router } from "react-router-dom";
+import { Navigate, Routes, Route, Router } from "react-router-dom";
  
 //history
 //import { history } from './helpers/history';
@@ -11,10 +11,10 @@ import Register from "./Register";
 import Weather from "./Weather";
 import RouteGuard from "./RouteGuard";
  
-function Routes() {
+function rout() {
    return (
        <Router >
-           <Switch>
+           <Routes>
                <Route
                    exact
                    path="/"
@@ -32,9 +32,9 @@ function Routes() {
                 path="/weather"
                 component={Weather}
                />
-               <Redirect to="/" />
+               <Navigate to="/" />
                
-           </Switch>
+           </Routes>
        </Router>
    );
 };
