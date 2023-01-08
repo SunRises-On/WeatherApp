@@ -3,7 +3,7 @@ import { setAuthToken } from "../helpers/setAuthToken";
 import RegisterService from "../services/RegisterService";
 import ErrorService from "../services/ErrorService";
 function Register() {
-  
+
     const handleSubmit = (username,email,password)=>{
         //request registered sample user
         const registerPayload = {
@@ -25,15 +25,27 @@ function Register() {
     };
 
     return(
-        <form>
-            <label for="username">Username</label><br/>
-            <input type="username" id="username" name="username"/><br/>
+        <form
+          onSubmit={(event)=>{
+                event.preventDefault()
+                const[username,email,password]=event.target.children;
+                handleSubmit(username,email,password);
+          }}
+        >
+            <label>
+              Username:
+              <input type="text" id="username" name="username"/>
+            </label><br/>
 
-            <label for="email">Email</label><br/>
-            <input type="email" id="email" name="email"/><br/>
+            <label>
+              Email:
+              <input type="email" id="email" name="email"/>
+            </label><br/>
 
-            <label for="password">Password</label><br/>
-            <input type="password" id="password" name="password"/><br/>
+            <label>
+              Password:
+              <input type="password" id="password" name="password"/>
+            </label><br/>
 
             <input type="submit" value="Submit"/>
         </form>

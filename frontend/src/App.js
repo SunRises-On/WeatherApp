@@ -1,10 +1,10 @@
 import './App.css';
 import React from 'react';
-import { Navigate, Routes, Route, Router } from "react-router-dom";
- 
+import {Navigate, Routes, Route, Router, BrowserRouter } from "react-router-dom";
+
+
 //history
-//import { history } from './helpers/history';
- 
+import { history } from './helpers/history'; 
 //pages
 import Home from './component/Home';
 import Login from './component/Login';
@@ -24,29 +24,33 @@ function App() {
 
    return(
     <div>
-      <Router >
+      <BrowserRouter>
            <Routes>
                <Route
-                   exact
-                   path="/"
-                   component={Home}
+                   exact path="/"
+                   element={<Home/>}
                />
                <Route
-                   path="/login"
-                   component={Login}
+                   path="login"
+                   element={<Login/>}
                />
                <Route
-                    path="/register"
-                    component={Register}
+                    path="register"
+                    element={<Register/>}
                />
-               <RouteGuard
-                path="/weather"
-                component={Weather}
+               <Route
+                    path="weather"
+                    element={
+                      <RouteGuard
+                        component={Weather}
+                      />
+                    }
                />
-               <Navigate to="/" />
+               {/* when we make an invalid path we will be redirected to home page component */}
+               <Route path='*' element={<Navigate to="/"/>} />
                
            </Routes>
-       </Router>
+       </BrowserRouter>
     </div>
    );
 }

@@ -20,7 +20,7 @@ const RouteGuard =({component:Component, ...rest})=>{
                 hasJWT()?
                     <Component{...props}/>
                     :
-                    <Navigate to={{ pathname: '/login'}}/>
+                    <Navigate link to='login'/>
             )}
         />
     );

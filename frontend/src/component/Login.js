@@ -35,6 +35,15 @@ function Login() {
 
         >
 
+            <label>
+              Email:
+              <input type="email" id="email" name="email"/>
+            </label><br/>
+
+            <label>
+              Password:
+              <input type="password" id="password" name="password"/>
+            </label><br/>
             <label for="email">Email</label><br/>
             <input type="email" id="email" name="email"/><br/>
 
@@ -42,6 +51,7 @@ function Login() {
             <input type="password" id="password" name="password"/><br/>
 
             <input type="submit" value="Submit"/>
+
         </form>
       );
   }
