@@ -4,25 +4,20 @@ import {Route,Navigate} from 'react-router-dom';
 //authentication middleware.
 //switch to redux and 
 //redux middleware
-const RouteGuard =({component:Component, ...rest})=>{
+const RouteGuard =()=>{
+    console.log("in route guard");
+    let flag=hasJWT();
     function hasJWT(){
         let flag = false;
 
         //check if user has JWT token
         sessionStorage.getItem("token") ? flag=true : flag=false
 
-        return flag
+        return flag;
     }
 
-    return(
-        <Route {...rest}
-            render={props=>(
-                hasJWT()?
-                    <Component{...props}/>
-                    :
-                    <Navigate link to='login'/>
-            )}
-        />
-    );
-};
+    if(!flag){
+        return <Navigate to="login"/>;
+    }
+}
 export default RouteGuard;

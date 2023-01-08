@@ -29,6 +29,6 @@ export default function TempHourly(props){
             </div>
             )
     }else{
-        return(<h>Database error</h>)
+        return(<header>Database error</header>)
     }
  }

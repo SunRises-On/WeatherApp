@@ -38,14 +38,9 @@ function App() {
                     path="register"
                     element={<Register/>}
                />
-               <Route
-                    path="weather"
-                    element={
-                      <RouteGuard
-                        component={Weather}
-                      />
-                    }
-               />
+               <Route element={<RouteGuard/>}>
+                  <Route path="weather" element={<Weather/>} />
+               </Route>
                {/* when we make an invalid path we will be redirected to home page component */}
                <Route path='*' element={<Navigate to="/"/>} />
                

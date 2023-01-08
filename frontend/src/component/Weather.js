@@ -1,25 +1,19 @@
 import { useEffect ,useState} from 'react';
+import './style/App.css';
 import React from 'react';
 import TemperatureService from '../services/TemperatureService';
 import ErrorService from '../services/ErrorService';
 import TempHourly from './TempHourly';
 function Weather() {
+  console.log("We are in weather");
   const[temps, setTemps]=useState([]);
   
   //Refresh data periodically using setInterval
   useEffect(()=>{
-    getAllTemps();
-    const interval=setInterval(()=>{
-      console.log("Polling database every 10 secs.");
-      getAllTemps();
-    },10000)
-    return()=>clearInterval(interval);
-  }, []);
-  //Axios async/await, 
-  //async - specifies the caller function
-  //await - asynchronous function pauses until promise is resolved
-  //code changes  no '.then' anymore save response in 'const response'
-  const getAllTemps = async()=>{
+      //Axios async/await, async - specifies the caller function
+    //await - asynchronous function pauses until promise is resolved code changes  no 
+    //'.then' anymore save response in 'const response'
+    const getAllTemps = async()=>{
       try{
         const response = await TemperatureService.getTemperatures();
         //array of objects
@@ -36,16 +30,22 @@ function Weather() {
 
       }catch(error){
         ErrorService.handle(error);
-      }
-      
-    }
+      } 
+    };
+    const interval=setInterval(()=>{
+      console.log("Polling database every 10 secs.");
+      getAllTemps();
+    },10000)
+    return()=>clearInterval(interval);
+  }, [temps]);
 
   return (
-    <div className="App">
-      <h1>hello world</h1>
+    <div className='App'>
+      <header>
+        secret information
+      </header>
       <TempHourly temps={temps}/>
     </div>
   );
 }
-
-export default Weather.js;
+export default Weather;
