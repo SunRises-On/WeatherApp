@@ -10,14 +10,11 @@ function Weather() {
   
   //Refresh data periodically using setInterval
   useEffect(()=>{
-      //Axios async/await, async - specifies the caller function
-    //await - asynchronous function pauses until promise is resolved code changes  no 
-    //'.then' anymore save response in 'const response'
-    const getAllTemps = async()=>{
-      try{
-        const response = await TemperatureService.getTemperatures();
-        //array of objects
+    function getAllTemps(){
+      TemperatureService.getTemperatures().then(response=>{
+        console.log(response);
         const happy = response.data.temps.allTemps;
+        //array of objects
         console.log(happy);
         //convert array into string using JSON.stringify() method
         //convert the string again to array of objects using JSON.parse() method
@@ -27,11 +24,13 @@ function Weather() {
         console.log("happy at (5) : " + JSON.stringify(happy.at(5)));
         console.log("temps : " + temps);
         console.log("temps at (5) : " + JSON.stringify(temps.at(0)));
-
-      }catch(error){
+      }).catch(error=>{
+        console.log("Error from Weather.js");
         ErrorService.handle(error);
-      } 
+      })    
     };
+        
+    getAllTemps();
     const interval=setInterval(()=>{
       console.log("Polling database every 10 secs.");
       getAllTemps();
