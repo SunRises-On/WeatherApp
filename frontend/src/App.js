@@ -3,10 +3,10 @@ import React from 'react';
 import {Navigate, Routes, Route, BrowserRouter } from "react-router-dom";
 
 //pages
-import Home from './component/Home';
-import Login from './component/Login';
-import Register from './component/Register';
-import Weather from './component/Weather';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Weather from './pages/Weather';
 import PrivateRoutes from './component/PrivateRoutes';
 import {setAuthToken} from './helpers/setAuthToken';
 
