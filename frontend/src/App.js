@@ -1,63 +1,50 @@
-import { useEffect ,useState} from 'react';
 import './App.css';
 import React from 'react';
-import TemperatureService from './services/TemperatureService';
-import TempHourly from './component/TempHourly';
+import {Navigate, Routes, Route, BrowserRouter } from "react-router-dom";
+
+//pages
+import Home from './component/Home';
+import Login from './component/Login';
+import Register from './component/Register';
+import Weather from './component/Weather';
+import PrivateRoutes from './component/PrivateRoutes';
+import {setAuthToken} from './helpers/setAuthToken';
+
 function App() {
-  const[temps, setTemps]=useState([]);
-  
-  //Refresh data periodically using setInterval
-  useEffect(()=>{
-    getAllTemps();
-    const interval=setInterval(()=>{
-      console.log("Polling database every 10 secs.");
-      getAllTemps();
-    },10000)
-    return()=>clearInterval(interval);
-  }, []);
-  //Axios async/await, 
-  //async - specifies the caller function
-  //await - asynchronous function pauses until promise is resolved
-  //code changes  no '.then' anymore save response in 'const response'
-  const getAllTemps = async()=>{
-      try{
-        const response = await TemperatureService.getTemperatures();
-        //array of objects
-        const happy = response.data.temps.allTemps;
-        console.log(happy);
-        //convert array into string using JSON.stringify() method
-        //convert the string again to array of objects using JSON.parse() method
-        //result is a deep copy that isn't a reference, but a new memory location!
-        setTemps(JSON.parse(JSON.stringify(happy)));
-        console.log("first");
-        console.log("happy at (5) : " + JSON.stringify(happy.at(5)));
-        console.log("temps : " + temps);
-        console.log("temps at (5) : " + JSON.stringify(temps.at(0)));
 
-      }catch(error){
-        if(error.response){
-          //Request completed but server responded with an error
-          console.log(error.response.data);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        }else if(error.request){
-          //Request completed but no response received from server.
-          console.log(error.request);
-        }else{
-          //Error occured while setting up request.
-          console.log("Error : " + error.message);
-        }
-        
-      }
-      
-    }
+  //check if already authenticated
+  const token = sessionStorage.getItem("token");
+  if(token){
+    setAuthToken(token);
+  }
 
-  return (
-    <div className="App">
-      <h1>hello world</h1>
-      <TempHourly temps={temps}/>
+   return(
+    <div>
+      <BrowserRouter>
+           <Routes>
+              <Route element ={<PrivateRoutes/>}>
+                <Route path='weather' element={<Weather/>}/>
+                {/* <Route path='other' element={<Other/>}/> */}
+              </Route>
+               <Route
+                   exact path="/"
+                   element={<Home/>}
+               />
+               <Route
+                   path="login"
+                   element={<Login/>}
+               />
+               <Route
+                    path="register"
+                    element={<Register/>}
+               />
+               {/* when we make an invalid path we will be redirected to home page component */}
+               <Route path='*' element={<Navigate to="/"/>} />
+               
+           </Routes>
+       </BrowserRouter>
     </div>
-  );
+   );
 }
 
 export default App;
