@@ -9,6 +9,8 @@ import Register from './pages/Register';
 import Weather from './pages/Weather';
 import PrivateRoutes from './component/PrivateRoutes';
 import {setAuthToken} from './helpers/setAuthToken';
+//component
+import Header from './component/Header';
 
 function App() {
 
@@ -19,7 +21,8 @@ function App() {
   }
 
    return(
-    <div>
+    <div >
+      <Header/>
       <BrowserRouter>
            <Routes>
               <Route element ={<PrivateRoutes/>}>
