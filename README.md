@@ -15,7 +15,7 @@ Secured through Spring Security and JWT tokens.
 
 ## Backend
 - Spring Boot 3.0.0
-- Spring Security
+- Spring Security 6.0
 - Java 17
 - MySQL
 - JPA
