@@ -8,15 +8,15 @@ Secured through Spring Security and JWT tokens.
 # Technologies
 
 ## Frontend
--React
--Javascript
--CSS
--HTML
+- React
+- Javascript
+- CSS
+- HTML
 
 ## Backend
--Spring Boot 3.0.0
--Spring Security
--Java
--MySQL
--JPA
--Hibernate
+- Spring Boot 3.0.0
+- Spring Security
+- Java 17
+- MySQL
+- JPA
+- Hibernate
