@@ -1,19 +1,22 @@
 # WeatherApp
 GUI for the NOAA website. Showcasing temperatures for the next 24 hours.
 
-#Security
+# Security
 
 Secured through Spring Security and JWT tokens.
 
-#Technologies
+# Technologies
 
-Frontend
+## Frontend
 -React
 -Javascript
 -CSS
 -HTML
 
-Backend
--Spring Boot
+## Backend
+-Spring Boot 3.0.0
 -Spring Security
 -Java
+-MySQL
+-JPA
+-Hibernate
