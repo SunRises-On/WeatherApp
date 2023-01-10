@@ -10,12 +10,14 @@ body{
     width: 550px;
     margin: 20px auto;
     padding: 20px;
+    position: relative;
     /* height: 600px; */
 }
 
 .form-body{
     text-align: left;
     padding: 20px 10px;
+    /* display:table;  */
 }
 
 .form-body > *{
@@ -23,13 +25,31 @@ body{
 }
 
 .form__label{
+    position: relative;
     width: 40%;
+    /* display: table-cell; */
 }
 
-.form_input{
+.form__input{
+    position: relative;
     width: 60%;
+    
 }
+ 
+/* .username{
+    display:table-row;
+}
+.email{
+    display:table-row;
+}
+.password{
+    display: table-row;
+}  */
+/* .email>.form__label{
+    padding-right: 40px;
+} */
 
 .footer{
     text-align: center;
+    display: table-row;
 }
