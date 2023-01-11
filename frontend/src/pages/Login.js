@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import { setAuthToken } from "../helpers/setAuthToken";
 import LoginService from "../services/LoginService";
 import ErrorService from "../services/ErrorService";

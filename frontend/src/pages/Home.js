@@ -1,9 +1,9 @@
 function HomePage() {
     return (
       <div>
-        <header>
+        <p>
           Home page
-        </header>
+        </p>
       </div>
     );
   }
