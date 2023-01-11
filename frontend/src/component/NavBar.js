@@ -7,9 +7,9 @@ function NavBar(){
    
     return(
         <div className='navBar'>
-            <h1 className='header'>header</h1>
+            <h1 className='header'>Weather Front</h1>
             <div className='nav-left'>
-                <button className='btn'>button</button>
+                <button className='btn'>Login</button>
             </div>
         </div>
     )    
