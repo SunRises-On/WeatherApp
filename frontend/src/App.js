@@ -11,6 +11,7 @@ import PrivateRoutes from './component/PrivateRoutes';
 import {setAuthToken} from './helpers/setAuthToken';
 //component
 import NavBar from './component/NavBar';
+import Footer from './component/Footer';
 
 function BasicLayout(){
   return(
@@ -34,7 +35,9 @@ function App() {
     <div >
            <Routes>
               <Route element ={<PrivateRoutes/>}>
-                <Route path='weather' element={<Weather/>}/>
+                <Route element={<BasicLayout/>}>
+                  <Route path='weather' element={<Weather/>}/>
+                </Route>
                 {/* <Route path='other' element={<Other/>}/> */}
               </Route>
               <Route path="/" element={<BasicLayout/>}>

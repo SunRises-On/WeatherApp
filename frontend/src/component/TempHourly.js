@@ -18,7 +18,7 @@ export default function TempHourly(props){
                             temps.map((temp)=>{
                                 return(
                                     <tr key={temp.id}>
-                                        <td>id={temp.id}</td>
+                                        <td>{temp.id}</td>
                                         <td>{temp.temperature}&deg;</td>
                                     </tr>    
                                 )

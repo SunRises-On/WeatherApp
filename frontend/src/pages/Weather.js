@@ -41,8 +41,6 @@ function Weather() {
   return (
     <div className='App'>
       <TempHourly temps={temps}/>
-      <div>
-      </div>
     </div>
   );
 }
