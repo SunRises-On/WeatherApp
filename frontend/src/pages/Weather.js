@@ -40,10 +40,9 @@ function Weather() {
 
   return (
     <div className='App'>
-      <header>
-        secret information
-      </header>
       <TempHourly temps={temps}/>
+      <div>
+      </div>
     </div>
   );
 }

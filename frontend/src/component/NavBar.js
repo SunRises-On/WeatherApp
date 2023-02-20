@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './style/HeaderStyle.css';
 
 function NavBar(){
@@ -9,7 +9,9 @@ function NavBar(){
         <div className='navBar'>
             <h1 className='header'>Weather Front</h1>
             <div className='nav-left'>
-                <button className='btn'>Login</button>
+                <Link to="/register">
+                    <button className='btn' >Register</button>
+                </Link>
             </div>
         </div>
     )    
